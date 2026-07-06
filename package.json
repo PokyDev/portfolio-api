@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API to portfolio project",
+  "license": "MIT",
+  "author": "@Pokymon.dev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@prisma/client": "^6.19.3",
+    "fastify": "^5.9.0",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "dotenv": "^17.4.2",
+    "prisma": "^6.19.3",
+    "socket.io-client": "^4.8.3",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
