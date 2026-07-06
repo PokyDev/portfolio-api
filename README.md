@@ -1,6 +1,6 @@
 <table align="center"><tr>
   <td><img src="./public/icons/@Poky.png" alt="Pato coronado — @Pokymon.dev" height="64" /></td>
-  <td><img src="./public/icons/titulo-backend.svg" height="48" alt="BACKEND" /></td>
+  <td><img src="./public/icons/titulo-backend.svg" height="64" alt="BACKEND — portfolio-api" /></td>
 </tr></table>
 
 <h1 align="center">portfolio-api</h1>
