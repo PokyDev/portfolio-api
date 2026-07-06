@@ -1,9 +1,9 @@
-<table align="center"><tr>
-  <td><img src="./public/icons/@Poky.png" alt="Pato coronado — @Pokymon.dev" height="64" /></td>
-  <td><img src="./public/icons/titulo-backend.svg" height="64" alt="BACKEND — portfolio-api" /></td>
-</tr></table>
-
-<h1 align="center">portfolio-api</h1>
+<p align="center">
+  <img src="./public/icons/@Poky.png" alt="Pato coronado — @Pokymon.dev" height="72" />
+</p>
+<p align="center">
+  <img src="./public/icons/titulo-backend.svg" height="64" alt="BACKEND — portfolio-api" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white" />
