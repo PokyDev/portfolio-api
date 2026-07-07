@@ -22,7 +22,7 @@ de cliente y el chat en tiempo real.
 
 ## Stack
 
-<img src="./public/icons/@Node.png" height="20" /> **Stack técnico:**
+**Stack técnico:**
 
 | Tecnología | Uso |
 |---|---|
@@ -60,7 +60,7 @@ corriendo con el proxy en `:8080`.
 
 ## Repo relacionado
 
-<img src="./public/icons/@Next.png" height="20" /> [portfolio-web](https://github.com/PokyDev/portfolio-web) — frontend de esta plataforma (Next.js + Tailwind CSS).
+- [portfolio-web](https://github.com/PokyDev/portfolio-web) — frontend de esta plataforma (Next.js + Tailwind CSS).
 
 ## Cronograma de desarrollo
 
@@ -82,7 +82,3 @@ corriendo con el proxy en `:8080`.
 | 13 | 18-jul-2026 | INFRA | Despliegue del backend | Oracle Cloud (ARM): clonar `portfolio-api`, instalar dependencias, configurar `.env` de producción, replicar la configuración de Nginx validada en local (proxy + WebSocket + header de gateway), PostgreSQL de producción con migraciones, proceso bajo PM2, y DNS/TLS del subdominio `api.{dominio}` en Cloudflare. |
 | 14 | 19-jul-2026 | INFRA | Despliegue del frontend + integración | Conectar `portfolio-web` a Vercel con despliegue automático, configurar `NEXT_PUBLIC_BACKEND_URL` de producción, DNS del dominio raíz en Cloudflare apuntando a Vercel, y verificación end-to-end del flujo completo en producción incluyendo WSS. |
 | 15 | 20-jul-2026 | INFRA | Monitoreo y cierre de versión | Logs estructurados accesibles vía PM2 (RNF-07), verificación de reinicio automático, programación de backups de PostgreSQL, revisión final de hardening (headers, rate limiting, TLS), checklist de RF/RNF contra `project_description.md`, y tag de release `v1.0.0` en ambos repos. |
-
-<p align="center">
-  <a href="https://github.com/PokyDev"><img src="./public/icons/GitHub.png" height="24" alt="GitHub — @Pokymon.dev" /></a>
-</p>
