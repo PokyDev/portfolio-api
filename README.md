@@ -54,15 +54,15 @@ En local solo es alcanzable vía Nginx en `:8080`; el acceso directo a
 - `src/socket.ts` — servidor Socket.io montado sobre Fastify.
 - `prisma/` — esquema y migraciones.
 - `prisma.config.ts` — configuración de Prisma.
-- `.env.example` — variables de entorno de referencia.
 - `dist/` — build de producción (generado, no versionado en desarrollo).
 
 ## Desarrollo local
 
-Docker Desktop + `docker compose up -d` (Postgres), `npm install`, copiar
-`.env.example` a `.env` (`DATABASE_URL`, `INTERNAL_GATEWAY_SECRET`,
-`FRONTEND_URL`), `npx prisma migrate dev`, `npm run dev`. Nginx debe estar
-corriendo con el proxy en `:8080`.
+Docker Desktop + `docker compose up -d` (Postgres), `npm install`, crear
+`.env` (no versionado, no distribuido) con `DATABASE_URL`,
+`INTERNAL_GATEWAY_SECRET`, `FRONTEND_URL`, `npx prisma migrate dev`,
+`npm run dev`. Nginx debe estar corriendo con el proxy en `:8080`. No se
+distribuye ningún archivo `.env.example`.
 
 ## Repo relacionado
 
@@ -73,7 +73,7 @@ corriendo con el proxy en `:8080`.
 | Día | Fecha | Frente | Tarea | Descripción |
 |---|---|---|---|---|
 | 0 | ≤ 05-jul-2026 | INFRA | ✅ Configuración de entorno local | Completado según `config_enviroment.md`: PostgreSQL 16 en Docker, Nginx como proxy inverso en `:8080` con soporte WebSocket y hardening de `:3001` (bind a loopback + header secreto), Next.js 16 con TypeScript/Tailwind, Fastify 5 + Socket.io integrados y probados a través del proxy, Prisma inicializado con migración de prueba, variables de entorno formalizadas con `.env.example` por app, y script automatizado de test de sockets. |
-| 1 | 06-jul-2026 | AMBOS | Repositorios GitHub + higiene de versionado | Crear `portfolio-web` y `portfolio-api` según esta spec: `git init` por app, verificación de `.gitignore` (exclusión de `.env*`, inclusión de `.env.example`), README con la estructura de las secciones 2.2 y 3.2, push inicial a `main`, y vinculación de remotos con GitHub CLI (auth ya realizada). |
+| 1 | 06-jul-2026 | AMBOS | ✅ Repositorios GitHub + higiene de versionado | Crear `portfolio-web` y `portfolio-api` según esta spec: `git init` por app, verificación de `.gitignore` (exclusión total de `.env*`, sin excepción para `.env.example` — ninguna variable de entorno se sube a GitHub, ni siquiera como ejemplo; se mantienen ocultas todo el tiempo), README con la estructura de las secciones 2.2 y 3.2, push inicial a `main`, y vinculación de remotos con GitHub CLI (auth ya realizada). |
 | 2 | 07-jul-2026 | API | Modelo de datos y migraciones Prisma | Reemplazar el modelo de prueba `HealthCheck` por el esquema real: `users` (roles admin/client), `tickets`, `ticket_messages`, `projects`, `conversations`, `messages`, `deliverables`, `deliverable_feedback`, `timeline_phases`. Ejecutar `prisma migrate dev`, crear seed mínimo (usuario admin), y documentar el modelo como spec en el repo. |
 | 3 | 08-jul-2026 | API | Autenticación núcleo | Hashing Argon2id, generación criptográfica de contraseña provisional (12 caracteres, 4 tipos), endpoint de login, emisión de JWT de corta duración + refresh token, middleware RBAC (`admin`/`client`) y rate limiting con bloqueo progresivo en intentos fallidos (RNF-03, RNF-03b, RNF-03c). |
 | 4 | 09-jul-2026 | API | Correo transaccional + 2FA + reset | Alta y validación del proveedor (Resend o Mailtrap) con correo de prueba; flujo de verificación de correo por código/link; activación de 2FA TOTP (RF-13b); flujo completo de restablecimiento de contraseña autónomo (RF-13c). |
